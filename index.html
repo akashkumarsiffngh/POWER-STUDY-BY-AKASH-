@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❤️‍🔥EDUVERSE AKASH ❤️‍🔥</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ROLEX AKASH SERVER</title>
     <style>
         * {
             margin: 0;
@@ -14,417 +13,320 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: #0f172a;
+            color: #fff;
             overflow: hidden;
-            position: relative;
         }
         
         .container {
-            width: 100%;
-            max-width: 1200px;
-            min-height: 90vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 20px;
+            height: 100vh;
         }
         
-        /* Particles background */
-        .particles {
+        .header {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+            z-index: 10;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .logo-icon {
+            color: #3b82f6;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgba(30, 41, 59, 0.7);
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .online {
+            background-color: #10b981;
+            box-shadow: 0 0 8px #10b981;
+        }
+        
+        .offline {
+            background-color: #ef4444;
+            box-shadow: 0 0 8px #ef4444;
+        }
+        
+        .content-area {
+            flex: 1;
+            position: relative;
+        }
+        
+        .website-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+        
+        .error-screen {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
-        }
-        
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-        }
-        
-        /* Header styling */
-        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            margin-bottom: 40px;
-            z-index: 2;
+            padding: 20px;
+            z-index: 5;
         }
         
-        .header h1 {
-            font-size: 3.5rem;
-            color: #fff;
-            margin-bottom: 10px;
-            text-shadow: 0 0 15px rgba(255, 0, 100, 0.7);
-            position: relative;
-            display: inline-block;
+        .error-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            color: #ef4444;
         }
         
-        .header h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #ff0055, transparent);
-            border-radius: 50%;
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #f8fafc;
         }
         
-        .header p {
-            color: #e0e0ff;
+        .error-message {
             font-size: 1.2rem;
-            max-width: 600px;
-            margin: 20px auto;
+            max-width: 500px;
+            margin-bottom: 30px;
+            color: #cbd5e1;
             line-height: 1.6;
         }
         
-        /* Password box styling */
-        .password-box {
-            background: rgba(25, 25, 45, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            width: 100%;
-            max-width: 500px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 2;
-            text-align: center;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        
-        .password-box h2 {
-            color: #fff;
-            margin-bottom: 30px;
-            font-size: 2rem;
+        .retry-button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
         }
         
-        .input-group {
-            position: relative;
-            margin-bottom: 30px;
+        .retry-button:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
         }
         
-        .input-group input {
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 2px solid transparent;
-            border-radius: 50px;
-            outline: none;
-            color: #fff;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .input-group input:focus {
-            border-color: #ff0055;
-            box-shadow: 0 0 15px rgba(255, 0, 100, 0.5);
-        }
-        
-        .input-group i {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #aaa;
-            cursor: pointer;
-        }
-        
-        .submit-btn {
-            background: linear-gradient(45deg, #ff0055, #d400ff);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 0, 100, 0.4);
-            font-weight: bold;
-            letter-spacing: 1px;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-            display: block;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 0, 100, 0.6);
-        }
-        
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-        
-        /* Error message */
-        .error-message {
-            color: #ff4d4d;
-            margin-top: 20px;
-            font-weight: 500;
-            height: 25px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .error-message.show {
-            opacity: 1;
-        }
-        
-        /* Content styling */
-        .content {
+        .hidden {
             display: none;
-            width: 100%;
-            z-index: 2;
-            text-align: center;
         }
         
-        .content h2 {
-            color: #fff;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
         
-        .content-box {
-            background: rgba(25, 25, 45, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(59, 130, 246, 0.3);
+            border-top: 5px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
         
-        .success-icon {
-            color: #00ff99;
-            font-size: 5rem;
-            margin-bottom: 30px;
-            text-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
-            animation: pulse 1.5s infinite;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        .redirect-message {
-            color: #e0e0ff;
-            font-size: 1.3rem;
-            margin-top: 30px;
-            line-height: 1.6;
-        }
-        
-        .redirect-message strong {
-            color: #00ff99;
-            font-weight: bold;
-        }
-        
-        /* Footer styling */
         .footer {
-            margin-top: 40px;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+            background: rgba(15, 23, 42, 0.9);
+            padding: 10px 20px;
             text-align: center;
-            z-index: 2;
-            width: 100%;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            border-top: 1px solid #334155;
         }
         
-        /* Animation classes */
-        .fade-out {
-            animation: fadeOut 0.5s forwards;
-        }
-        
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.8s forwards;
-            animation-delay: 0.5s;
-            opacity: 0;
-        }
-        
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-        
-        /* Responsive design */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
+            .error-title {
+                font-size: 2rem;
             }
             
-            .password-box, .content-box {
-                padding: 30px 20px;
-                width: 90%;
-            }
-            
-            .header p {
+            .error-message {
                 font-size: 1rem;
+            }
+            
+            .header {
+                padding: 12px 15px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="particles" id="particles"></div>
-    
     <div class="container">
         <div class="header">
-            <h1>❤️‍🔥 EDUVERSE AKASH ❤️‍🔥</h1>
-            <p>Welcome to the exclusive educational portal. Enter the correct passcode to access premium learning resources for the next batch.</p>
+            <div class="logo">
+                <span class="logo-icon">🌐</span>
+                <span>ROLEX AKASH SERVER</span>
+            </div>
+            <div class="status-indicator">
+                <div class="status-dot online" id="statusDot"></div>
+                <span id="statusText">Online</span>
+            </div>
         </div>
         
-        <div class="password-box" id="passwordBox">
-            <h2><i class="fas fa-lock"></i> Secure Access</h2>
-            <div class="input-group">
-                <input type="password" id="passwordInput" placeholder="Enter access code">
-                <i class="fas fa-eye" id="togglePassword"></i>
-            </div>
-            <button class="submit-btn" id="submitBtn">ACCESS CONTENT</button>
-            <div class="error-message" id="errorMessage">Incorrect access code. Please try again.</div>
-        </div>
-        
-        <div class="content" id="content">
-            <h2>Access Granted!</h2>
-            <div class="content-box">
-                <div class="success-icon">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <h2>Welcome to EDUVERSE AKASH</h2>
-                <p>You've successfully authenticated and are being granted access to our premium educational content.</p>
-                <div class="redirect-message">
-                    <p>You will be redirected to <strong>WAIT BHAI 😁</strong> in <span id="countdown">5</span> seconds...</p>
+        <div class="content-area">
+            <!-- Loading screen -->
+            <div class="error-screen" id="loadingScreen">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Checking connection and loading content...</p>
                 </div>
             </div>
+            
+            <!-- Error screen -->
+            <div class="error-screen hidden" id="errorScreen">
+                <div class="error-icon">⚠️</div>
+                <h1 class="error-title">No Internet Connection</h1>
+                <p class="error-message">
+                    Your device is not connected to the internet. Please check your connection and try again.
+                    The website cannot be loaded without an active internet connection or please connect to AKASH SINGH. 
+                </p>
+                <button class="retry-button" id="retryButton">
+                    <span>Retry Connection</span>
+                </button>
+            </div>
+            
+            <!-- Website iframe -->
+            <iframe 
+                class="website-frame hidden" 
+                id="websiteFrame"
+                src="https://akashkumarsiffngh.github.io/ROLEX_AKASH-/"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
         </div>
         
         <div class="footer">
-            <p>© 2023 EDUVERSE AKASH | Premium Educational Platform | All Rights Reserved</p>
+            <p>ROLEX AKASH CONNECTION </p></p>
         </div>
     </div>
-    
+
     <script>
-        // Create particles background
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random properties
-                const size = Math.random() * 5 + 2;
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const animationDuration = Math.random() * 20 + 10;
-                const opacity = Math.random() * 0.5 + 0.1;
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}%`;
-                particle.style.top = `${posY}%`;
-                particle.style.animation = `float ${animationDuration}s infinite ease-in-out`;
-                particle.style.opacity = opacity;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
+        // DOM Elements
+        const statusDot = document.getElementById('statusDot');
+        const statusText = document.getElementById('statusText');
+        const errorScreen = document.getElementById('errorScreen');
+        const websiteFrame = document.getElementById('websiteFrame');
+        const loadingScreen = document.getElementById('loadingScreen');
+        const retryButton = document.getElementById('retryButton');
         
-        // Toggle password visibility
-        document.getElementById('togglePassword').addEventListener('click', function() {
-            const passwordInput = document.getElementById('passwordInput');
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            this.classList.toggle('fa-eye');
-            this.classList.toggle('fa-eye-slash');
+        // Check initial connection status
+        window.addEventListener('load', () => {
+            checkConnection();
         });
         
-        // Handle form submission
-        document.getElementById('submitBtn').addEventListener('click', validatePassword);
-        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                validatePassword();
-            }
+        // Listen for online/offline events
+        window.addEventListener('online', () => {
+            updateStatus(true);
         });
         
-        function validatePassword() {
-            const password = document.getElementById('passwordInput').value;
-            const errorMessage = document.getElementById('errorMessage');
-            
-            if (password === '224068','85','9349') {
-                // Correct password
-                const passwordBox = document.getElementById('passwordBox');
-                const content = document.getElementById('content');
-                
-                passwordBox.classList.add('fade-out');
-                setTimeout(() => {
-                    passwordBox.style.display = 'none';
-                    content.style.display = 'block';
-                    content.classList.add('fade-in');
-                    
-                    // Start countdown for redirect
-                    let count = 3;
-                    const countdownElement = document.getElementById('countdown');
-                    const countdownInterval = setInterval(() => {
-                        count--;
-                        countdownElement.textContent = count;
-                        
-                        if (count <= 0) {
-                            clearInterval(countdownInterval);
-                            window.location.href = 'https://theeduverse.xyz/nxt-batch/10th/batch';
-                        }
-                    }, 1000);
-                }, 500);
+        window.addEventListener('offline', () => {
+            updateStatus(false);
+        });
+        
+        // Function to check connection status
+        function checkConnection() {
+            // First check navigator.onLine for immediate response
+            if (navigator.onLine) {
+                // Then try to fetch a small resource to confirm real connectivity
+                fetch('https://www.google.com/favicon.ico', { 
+                    mode: 'no-cors',
+                    cache: 'no-cache'
+                })
+                .then(() => {
+                    updateStatus(true);
+                })
+                .catch(() => {
+                    updateStatus(false);
+                });
             } else {
-                // Incorrect password
-                errorMessage.classList.add('show');
-                document.getElementById('passwordInput').value = '';
-                
-                // Shake animation for error
-                const inputGroup = document.querySelector('.input-group');
-                inputGroup.style.animation = 'shake 0.5s';
-                setTimeout(() => {
-                    inputGroup.style.animation = '';
-                }, 500);
+                updateStatus(false);
             }
         }
         
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
+        // Function to update UI based on connection status
+        function updateStatus(isOnline) {
+            if (isOnline) {
+                // Online state
+                statusDot.className = 'status-dot online';
+                statusText.textContent = 'Online';
+                errorScreen.classList.add('hidden');
+                loadingScreen.classList.add('hidden');
+                websiteFrame.classList.remove('hidden');
+            } else {
+                // Offline state
+                statusDot.className = 'status-dot offline';
+                statusText.textContent = 'Offline';
+                errorScreen.classList.remove('hidden');
+                websiteFrame.classList.add('hidden');
+                loadingScreen.classList.add('hidden');
+            }
+        }
+        
+        // Retry connection
+        retryButton.addEventListener('click', () => {
+            loadingScreen.classList.remove('hidden');
+            errorScreen.classList.add('hidden');
             
-            // Add shake animation to CSS
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes shake {
-                    0%, 100% { transform: translateX(0); }
-                    20%, 60% { transform: translateX(-10px); }
-                    40%, 80% { transform: translateX(10px); }
-                }
-            `;
-            document.head.appendChild(style);
+            setTimeout(() => {
+                checkConnection();
+            }, 1500);
+        });
+        
+        // Periodically check connection status (every 10 seconds)
+        setInterval(() => {
+            checkConnection();
+        }, 10000);
+        
+        // Handle iframe load event
+        websiteFrame.addEventListener('load', () => {
+            // Iframe loaded successfully
+            console.log('Website loaded successfully');
+        });
+        
+        // Handle iframe error event
+        websiteFrame.addEventListener('error', () => {
+            // Iframe failed to load
+            console.log('Website failed to load');
+            // We don't change the UI here as the connection check will handle it
         });
     </script>
 </body>
-    </html>
+</html>
